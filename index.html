@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 90-Day Body Audit · Coach Joe Fantauzzi</title>
+<meta name="description" content="A 10-minute diagnostic for executive dads over 35. Find your metabolic blind spots, your biggest recovery leak, and the one lever that will move your body fastest.">
+<style>
+  :root {
+    --bg:#0E0F11;
+    --panel:#16181C;
+    --panel-2:#1D2026;
+    --border:#2A2D33;
+    --amber:#E8A317;
+    --amber-lt:#F4C361;
+    --amber-dim:#7A5A14;
+    --text:#F2EFE8;
+    --muted:#8D8F95;
+    --danger:#E26464;
+    --good:#6DCF8A;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+  }
+  .ambbar { height: 6px; background: var(--amber); width:100%; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 28px 22px 140px; }
+
+  /* ---------- Cover ---------- */
+  .eyebrow {
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--amber);
+    display: inline-block;
+    margin-bottom: 28px;
+  }
+  h1.cover-title {
+    font-size: clamp(40px, 9vw, 72px);
+    line-height: 0.98;
+    font-weight: 800;
+    margin: 0 0 14px;
+    letter-spacing: -0.02em;
+  }
+  h1.cover-title .amber { color: var(--amber); display:block; }
+  .sub {
+    font-size: clamp(15px, 2.4vw, 19px);
+    color: var(--text);
+    opacity: 0.9;
+    margin-bottom: 32px;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin: 20px 0;
+  }
+  .card h3 {
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--amber-dim);
+    display: inline-block;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 18px 0 0;
+  }
+  .rule {
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 14px;
+    margin: 18px 0 28px;
+  }
+
+  /* ---------- Intro ---------- */
+  h2.hook {
+    font-size: clamp(26px, 5.5vw, 38px);
+    line-height: 1.08;
+    font-weight: 800;
+    margin: 40px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  h2.hook .amber { color: var(--amber); }
+  .lead { font-size: 16px; color: var(--text); opacity: 0.92; }
+
+  .how-steps { list-style: none; padding: 0; margin: 14px 0 0; }
+  .how-steps li { display: flex; gap: 14px; padding: 8px 0; }
+  .how-steps .num {
+    color: var(--amber); font-weight: 800; font-size: 20px; min-width: 34px;
+  }
+  .how-steps .txt { color: var(--text); font-size: 15px; padding-top: 2px; }
+
+  .warning {
+    border: 1px solid var(--amber);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-top: 20px;
+  }
+  .warning .kicker { color: var(--amber); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; }
+  .warning .body { color: var(--text); font-size: 14px; margin-top: 4px; }
+
+  /* ---------- Pillars ---------- */
+  .pillar {
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .pillar .kicker { color: var(--muted); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .pillar h2 {
+    font-size: clamp(30px, 7vw, 44px);
+    color: var(--amber);
+    font-weight: 800;
+    margin: 6px 0 10px;
+    letter-spacing: -0.02em;
+  }
+  .pillar .lead-p { color: var(--text); opacity: 0.92; font-size: 15px; margin: 0 0 14px; }
+  .scale-note { color: var(--muted); font-size: 12px; font-style: italic; margin-bottom: 14px; }
+
+  .statement {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .statement:last-child { border-bottom: 0; }
+  .statement .txt { font-size: 15px; color: var(--text); }
+  .scale { display: flex; gap: 8px; flex-wrap: wrap; }
+  .scale label {
+    flex: 1 1 52px;
+    min-width: 52px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--panel-2);
+    border: 1px solid var(--amber);
+    border-radius: 6px;
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.12s, color 0.12s, transform 0.06s;
+  }
+  .scale label:active { transform: scale(0.97); }
+  .scale input { position: absolute; opacity: 0; pointer-events: none; }
+  .scale input:checked + span,
+  .scale label.checked {
+    background: var(--amber);
+    color: var(--bg);
+  }
+
+  .pillar-score {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border: 1px solid var(--amber);
+    border-radius: 6px;
+    background: rgba(232, 163, 23, 0.06);
+  }
+  .pillar-score .lbl {
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .pillar-score .val {
+    color: var(--amber);
+    font-weight: 800;
+    font-size: 20px;
+  }
+  .pillar-score .val .denom { color: var(--muted); font-weight: 500; font-size: 13px; margin-left: 4px; }
+
+  /* ---------- Scoreboard ---------- */
+  .scoreboard { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .scoreboard h2 {
+    font-size: clamp(30px, 7vw, 44px);
+    color: var(--amber);
+    font-weight: 800;
+    margin: 0 0 6px;
+    letter-spacing: -0.02em;
+  }
+  .scoreboard .lead-p { color: var(--text); opacity: 0.92; margin-bottom: 18px; }
+
+  .board {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 48px 1fr 80px 120px;
+    align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+  .row:last-child { border-bottom: 0; }
+  .row.head {
+    background: transparent;
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--amber-dim);
+  }
+  .row .num { color: var(--amber); font-weight: 800; }
+  .row .name { font-weight: 700; letter-spacing: 0.02em; }
+  .row .score {
+    text-align: center;
+    font-weight: 800;
+    color: var(--amber);
+    font-size: 18px;
+  }
+  .row .score .denom { color: var(--muted); font-size: 12px; font-weight: 500; }
+  .row .status {
+    text-align: right;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .row.is-lever { background: rgba(232, 163, 23, 0.12); }
+  .row.is-lever .name { color: var(--amber); }
+  .row.is-lever .status { color: var(--amber); }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: var(--amber);
+    color: var(--bg);
+    border-radius: 8px;
+  }
+  .total .lbl { font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .total .val { font-weight: 800; font-size: 26px; }
+  .total .val .denom { font-weight: 500; font-size: 14px; opacity: 0.7; margin-left: 4px; }
+
+  .key { margin-top: 22px; }
+  .key h3 {
+    color: var(--amber); text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--amber-dim); display:inline-block;
+  }
+  .key .k-row { display: grid; grid-template-columns: 60px 140px 1fr; gap: 10px; padding: 6px 0; font-size: 14px; }
+  .key .rng { color: var(--amber); font-weight: 700; }
+  .key .lab { color: var(--text); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 12px; }
+  .key .meaning { color: var(--muted); }
+
+  /* ---------- Lever ---------- */
+  .lever { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .lever h2 {
+    font-size: clamp(28px, 6vw, 38px);
+    font-weight: 800;
+    margin: 0 0 10px;
+    letter-spacing: -0.02em;
+  }
+  .lever h2 .amber { color: var(--amber); display:block; }
+  .lever-card {
+    margin-top: 18px;
+    padding: 18px 20px;
+    background: var(--panel);
+    border: 1.5px solid var(--amber);
+    border-radius: 10px;
+  }
+  .lever-card .lbl {
+    color: var(--amber); font-weight: 700; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .lever-card .pick {
+    color: var(--text); font-weight: 800; font-size: clamp(22px, 5vw, 32px); letter-spacing: -0.01em;
+  }
+  .lever-card .pick.unselected { color: var(--muted); font-style: italic; font-weight: 500; font-size: 15px; letter-spacing: 0; }
+  .lever-card .hint { color: var(--muted); font-size: 13px; font-style: italic; margin-top: 6px; }
+
+  .commit textarea {
+    width: 100%;
+    min-height: 60px;
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 14px;
+    resize: vertical;
+  }
+  .commit textarea:focus { outline: 2px solid var(--amber); outline-offset: -2px; }
+  .commit label {
+    display: block; margin-top: 14px; color: var(--text); font-size: 14px;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    margin-top: 48px;
+    padding: 28px 22px 32px;
+    background: var(--amber);
+    color: var(--bg);
+    border-radius: 10px;
+  }
+  .cta h3 { margin: 0 0 10px; font-size: clamp(22px, 4vw, 28px); font-weight: 800; letter-spacing: -0.01em; }
+  .cta p { margin: 0 0 16px; font-size: 15px; color: #1a1a1a; }
+  .cta .dm {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--bg); color: var(--text);
+    font-weight: 800; font-size: 15px; padding: 12px 18px;
+    border-radius: 8px; text-decoration: none; letter-spacing: 0.04em;
+  }
+  .cta .dm:active { opacity: 0.9; }
+  .contact { font-size: 13px; color: #1a1a1a; margin-top: 14px; opacity: 0.85; }
+
+  .coach {
+    margin-top: 40px;
+    padding: 20px 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .coach h4 { color: var(--amber); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 10px; padding-bottom:8px; border-bottom: 1px solid var(--amber-dim); display: inline-block; }
+  .coach p { margin: 10px 0 0; color: var(--text); opacity: 0.92; font-size: 14.5px; }
+
+  /* ---------- Sticky mini score bar (mobile-friendly) ---------- */
+  .sticky {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: rgba(14,15,17,0.95);
+    border-top: 1px solid var(--amber-dim);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 50;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .sticky .lbl { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .sticky .score { color: var(--amber); font-weight: 800; font-size: 18px; }
+  .sticky .score .denom { color: var(--muted); font-size: 12px; font-weight: 500; }
+  .sticky a.jump {
+    color: var(--amber); font-weight: 700; font-size: 13px; text-decoration: none;
+    border: 1px solid var(--amber); padding: 6px 12px; border-radius: 6px;
+  }
+
+  /* ---------- Footer ---------- */
+  .foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 30px; }
+  .foot a { color: var(--amber); text-decoration: none; }
+
+  @media (max-width: 520px) {
+    .row { grid-template-columns: 34px 1fr 70px; }
+    .row .status { display: none; }
+    .scale label { flex: 1 1 44px; min-width: 44px; height: 42px; font-size: 15px; }
+  }
+
+  @media print {
+    .sticky { display: none; }
+    body { background: white; color: black; }
+    .card, .pillar-score, .coach, .lever-card, .board, .row, .key { background: white; border-color: #ccc; color: black; }
+    .amber, h2.hook .amber, h1.cover-title .amber, .pillar h2, .scoreboard h2, .eyebrow, .card h3, .cta h3, .lever-card .lbl, .key h3, .coach h4 { color: #b07400 !important; }
+    .cta { background: #f2d789; color: black; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambbar"></div>
+
+<div class="wrap">
+
+  <!-- COVER -->
+  <div class="eyebrow">A free diagnostic by Coach Joe Fantauzzi</div>
+  <h1 class="cover-title">THE 90-DAY<span class="amber">BODY AUDIT</span></h1>
+  <div class="sub">A 10-minute diagnostic for executive dads over 35.</div>
+
+  <div class="card">
+    <h3>What you'll walk away with</h3>
+    <div>By the last section you'll have three things most high-performing dads never get: your metabolic blind spots named out loud, the single recovery leak that's bleeding off your results, and the one lever that will move your body the fastest over the next 90 days — without adding a gym session, a supplement, or a restriction you won't actually keep.</div>
+  </div>
+
+  <div class="meta">Version 1.0 · 5 Pillars · 10-Minute Self-Assessment · Auto-Scored</div>
+  <div class="rule">→ Do it in one sitting. Scores update live as you tap.</div>
+
+  <!-- INTRO -->
+  <h2 class="hook">You don't have a <span class="amber">discipline problem.</span><br>You have a diagnosis problem.</h2>
+  <p class="lead">Every executive dad I work with walks in saying some version of the same thing: "I know I'm off, I just don't know what to fix first." The weight crept up. The energy dipped. The gym sessions feel pointless. And the calendar stays full.</p>
+  <p class="lead">The problem isn't effort. It's that nobody has ever handed you a diagnostic built for a 40-year-old man running a company and a household — so you default to whatever generic advice you absorbed in your twenties. That's the gap this audit closes in the next ten minutes.</p>
+
+  <div class="card">
+    <h3>How this works</h3>
+    <ol class="how-steps">
+      <li><span class="num">01</span><span class="txt">Answer 5 statements per pillar (5 pillars in total).</span></li>
+      <li><span class="num">02</span><span class="txt">Tap 1–5 honestly. 1 = that's a leak. 5 = that's dialed in.</span></li>
+      <li><span class="num">03</span><span class="txt">Pillar totals and your grand total update live.</span></li>
+      <li><span class="num">04</span><span class="txt">Your lowest-scoring pillar is flagged as your 90-day lever.</span></li>
+    </ol>
+    <div class="warning">
+      <div class="kicker">ONE RULE: HONESTY &gt; OPTIMISM.</div>
+      <div class="body">A soft score here costs you six months of progress. Score your life today — not the one you're going to start Monday.</div>
+    </div>
+  </div>
+
+  <!-- PILLARS WILL BE INJECTED HERE -->
+  <div id="pillars"></div>
+
+  <!-- SCOREBOARD -->
+  <div class="scoreboard" id="scoreboard">
+    <h2>The Scoreboard</h2>
+    <p class="lead-p">Your totals update as you answer. The highlighted row is your lever.</p>
+    <div class="board" id="board"></div>
+
+    <div class="total">
+      <div class="lbl">Grand Total</div>
+      <div class="val"><span id="grand">0</span><span class="denom">/ 125</span></div>
+    </div>
+
+    <div class="key">
+      <h3>How to read a pillar score</h3>
+      <div class="k-row"><div class="rng">22–25</div><div class="lab">Dialed in</div><div class="meaning">Maintain and optimize. Don't overhaul what's working.</div></div>
+      <div class="k-row"><div class="rng">18–21</div><div class="lab">Solid</div><div class="meaning">Minor leaks. Tune, don't rebuild.</div></div>
+      <div class="k-row"><div class="rng">14–17</div><div class="lab">Noticeable leak</div><div class="meaning">This is holding you back more than you think.</div></div>
+      <div class="k-row"><div class="rng">10–13</div><div class="lab">Major leak</div><div class="meaning">This is the emergency. Your 90 days belong here.</div></div>
+      <div class="k-row"><div class="rng">0–9</div><div class="lab">Foundation broken</div><div class="meaning">Start here before adding anything else to your plate.</div></div>
+    </div>
+  </div>
+
+  <!-- LEVER -->
+  <div class="lever" id="lever">
+    <h2>Now forget the <span class="amber">other four pillars.</span></h2>
+    <p class="lead">Find your lowest-scoring pillar. That's your lever for the next 90 days. Not because the others don't matter — but because you only have so much executive bandwidth, and compounding only works when you actually focus.</p>
+
+    <div class="lever-card">
+      <div class="lbl">Your lever for the next 90 days:</div>
+      <div class="pick unselected" id="leverPick">Answer every pillar to see your lever.</div>
+      <div class="hint">This is where your focus lives for 90 days — not everywhere.</div>
+    </div>
+
+    <h3 style="color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;font-size:12px;margin-top:28px;padding-bottom:8px;border-bottom:1px solid var(--amber-dim);display:inline-block;">Why 90 days?</h3>
+    <p class="lead">Ninety days is the smallest honest window in which body composition, hormonal markers, and daily behaviors actually stabilize. Quick fixes don't stick; they inflate a scale and deflate your confidence. But 90 days of focused work on your actual leak will move more than a year of scattered effort ever will.</p>
+
+    <div class="card commit">
+      <h3>Your 90-day commitment</h3>
+      <label>For the next 90 days, I will:
+        <textarea id="commit1" placeholder="e.g. Strength train 3x per week and hit 180g protein daily."></textarea>
+      </label>
+      <label>The one metric I'll track weekly:
+        <textarea id="commit2" placeholder="e.g. Waist measurement, or grams of protein logged."></textarea>
+      </label>
+      <label>The accountability I'll set up this week:
+        <textarea id="commit3" placeholder="e.g. Coaching check-in, training partner, or weekly text to my wife."></textarea>
+      </label>
+    </div>
+  </div>
+
+  <!-- COACH + CTA -->
+  <div class="coach">
+    <h4>About Coach Joe Fantauzzi</h4>
+    <p>I'm Joe Fantauzzi — the coach behind the Exec Lean Metabolic Blueprint. I work exclusively with executive dads over 35 who are tired of generic fitness advice and ready for a system that fits a real calendar, a real family, and a body that's different than it was at 25. The method you just sampled in this audit is the same one my paid clients use to cut weight, rebuild energy, and stop living in reaction to their own bodies.</p>
+  </div>
+
+  <div class="cta">
+    <h3>Want me to review your audit?</h3>
+    <p>Send me a DM with your scoreboard and the pillar that got flagged as your lever. I'll respond personally with the first three moves I'd make if you were my client. No pitch, no funnel — just a real read on your situation.</p>
+    <a class="dm" href="https://instagram.com/exec_lean_metabolic_blueprint" target="_blank" rel="noopener">DM me on Instagram: AUDIT REVIEW →</a>
+    <div class="contact">@exec_lean_metabolic_blueprint · teamfitfantauzzi@gmail.com</div>
+  </div>
+
+  <div class="foot">The 90-Day Body Audit · Coach Joe Fantauzzi · <a href="mailto:teamfitfantauzzi@gmail.com">teamfitfantauzzi@gmail.com</a></div>
+</div>
+
+<!-- Sticky live score (mobile helper) -->
+<div class="sticky" role="status" aria-live="polite">
+  <div>
+    <div class="lbl">Live score</div>
+    <div class="score"><span id="grandLive">0</span><span class="denom">/125</span></div>
+  </div>
+  <a class="jump" href="#scoreboard">View scoreboard →</a>
+</div>
+
+<script>
+  // -------------------- DATA --------------------
+  const PILLARS = [
+    { id:"nutrition", name:"Nutrition",
+      lead:"For exec dads, nutrition isn't about willpower — it's about whether your default day feeds the body you want. Score each statement based on the last 7 days. Not your intentions. Not your best week.",
+      statements: [
+        "I eat within 60 minutes of waking and don't skip meals to \"save\" calories.",
+        "I hit at least 0.8g of protein per pound of goal bodyweight on a normal weekday.",
+        "I drink more water than coffee and alcohol combined.",
+        "I know my actual daily calorie target — not a guess from three years ago.",
+        "Restaurant meals and travel days don't derail me for 48+ hours afterward."
+      ]
+    },
+    { id:"sleep", name:"Sleep",
+      lead:"Sleep is the invisible multiplier on every other pillar. Score your actual last 7 nights — not the weekends you \"catch up.\" If you're under-sleeping, it's silently taxing your testosterone, recovery, and appetite regulation.",
+      statements: [
+        "I get 7+ hours of sleep at least 5 nights per week.",
+        "I wake within a 30-minute window without an alarm on weekends.",
+        "My last screen is 30+ minutes before I get into bed.",
+        "I don't use alcohol to take the edge off or fall asleep.",
+        "I wake up feeling physically rested — not just \"less tired than yesterday.\""
+      ]
+    },
+    { id:"stress", name:"Stress",
+      lead:"Chronic stress isn't a mindset problem — it's a hormonal one. The dads I work with rarely lack intensity; they lack decompression. Score honestly. This pillar is where high performers most often score themselves too high.",
+      statements: [
+        "I have at least one 15-minute daily window with zero inputs (no phone, email, or people).",
+        "My resting heart rate has been trending down or flat over the last 3 months — not up.",
+        "I don't grind my jaw, wake up tense, or carry tightness in my neck and shoulders daily.",
+        "I can end work by 8pm without guilt at least 4 nights a week.",
+        "I haven't used \"I'll deal with this after [quarter/launch/deal]\" to defer my health in 90 days."
+      ]
+    },
+    { id:"training", name:"Training",
+      lead:"Training is where most exec dads over-index on cardio and under-invest in the stimulus that actually keeps them lean, strong, and injury-free after 40. Score what your calendar actually shows — not what you meant to do.",
+      statements: [
+        "I strength train at least 3x per week — not just running, biking, or classes.",
+        "I'm progressing on a key lift (more weight, reps, or quality) month over month.",
+        "I don't train through pain that lasts longer than 48 hours.",
+        "My main training session fits inside 60 minutes — I don't sacrifice sleep for it.",
+        "I do at least one mobility or zone-2 session per week outside of strength work."
+      ]
+    },
+    { id:"hormones", name:"Hormones",
+      lead:"This is the pillar most dads guess at. You don't have to. The signals are measurable and the patterns are consistent. Low scores here don't mean you're broken — they mean the other four pillars are leaking into this one.",
+      statements: [
+        "My morning libido and erections are consistent with where they were at 30.",
+        "My energy doesn't crash between 2–4pm (without caffeine to cover it).",
+        "I've had labs pulled (testosterone, thyroid, full metabolic panel) in the last 12 months.",
+        "My waist measurement is stable or trending down — not creeping up year over year.",
+        "I recover from a hard physical effort within 48 hours — not a full week."
+      ]
+    }
+  ];
+
+  // -------------------- RENDER PILLARS --------------------
+  const pillarsEl = document.getElementById("pillars");
+  PILLARS.forEach((p, pi) => {
+    const section = document.createElement("section");
+    section.className = "pillar";
+    section.id = `pillar-${p.id}`;
+
+    section.innerHTML = `
+      <div class="kicker">Pillar 0${pi+1} of 5</div>
+      <h2>${p.name.toUpperCase()}</h2>
+      <p class="lead-p">${p.lead}</p>
+      <div class="scale-note">Score 1 = that's a leak &nbsp;·&nbsp; Score 5 = that's dialed in &nbsp;·&nbsp; Be honest. Optimism is expensive here.</div>
+      ${p.statements.map((s, si) => `
+        <div class="statement">
+          <div class="txt">${s}</div>
+          <div class="scale" role="radiogroup" aria-label="${p.name} question ${si+1}">
+            ${[1,2,3,4,5].map(n => `
+              <label data-val="${n}">
+                <input type="radio" name="${p.id}_q${si+1}" value="${n}" aria-label="${n}">
+                <span>${n}</span>
+              </label>
+            `).join("")}
+          </div>
+        </div>
+      `).join("")}
+      <div class="pillar-score">
+        <span class="lbl">${p.name} score</span>
+        <span class="val"><span id="score-${p.id}">0</span><span class="denom">/ 25</span></span>
+      </div>
+    `;
+    pillarsEl.appendChild(section);
+  });
+
+  // -------------------- RENDER SCOREBOARD ROWS --------------------
+  const boardEl = document.getElementById("board");
+  boardEl.innerHTML = `
+    <div class="row head">
+      <div>#</div><div>Pillar</div><div style="text-align:center;">Score</div><div style="text-align:right;">Status</div>
+    </div>
+    ${PILLARS.map((p, i) => `
+      <div class="row" data-pillar="${p.id}">
+        <div class="num">0${i+1}</div>
+        <div class="name">${p.name.toUpperCase()}</div>
+        <div class="score"><span id="board-${p.id}">0</span><span class="denom"> / 25</span></div>
+        <div class="status" id="status-${p.id}">—</div>
+      </div>
+    `).join("")}
+  `;
+
+  // -------------------- LIVE SCORING --------------------
+  function statusFor(n, answered) {
+    if (!answered) return "—";
+    if (n >= 22) return "DIALED IN";
+    if (n >= 18) return "SOLID";
+    if (n >= 14) return "NOTICEABLE LEAK";
+    if (n >= 10) return "MAJOR LEAK";
+    return "FOUNDATION BROKEN";
+  }
+
+  function recompute() {
+    let grand = 0;
+    let allAnswered = true;
+    let lowestScore = Infinity;
+    let lowestPillar = null;
+
+    PILLARS.forEach(p => {
+      let sum = 0;
+      let answered = 0;
+      for (let i = 1; i <= 5; i++) {
+        const sel = document.querySelector(`input[name="${p.id}_q${i}"]:checked`);
+        if (sel) { sum += parseInt(sel.value, 10); answered++; }
+      }
+      const pillarAnswered = answered === 5;
+      if (!pillarAnswered) allAnswered = false;
+
+      document.getElementById(`score-${p.id}`).textContent = sum;
+      document.getElementById(`board-${p.id}`).textContent = sum;
+      document.getElementById(`status-${p.id}`).textContent = statusFor(sum, pillarAnswered);
+      grand += sum;
+
+      // Only consider fully-answered pillars for lever
+      if (pillarAnswered && sum < lowestScore) {
+        lowestScore = sum;
+        lowestPillar = p;
+      }
+    });
+
+    document.getElementById("grand").textContent = grand;
+    document.getElementById("grandLive").textContent = grand;
+
+    // Highlight lever row
+    document.querySelectorAll(".row.is-lever").forEach(el => el.classList.remove("is-lever"));
+    const leverPick = document.getElementById("leverPick");
+    if (allAnswered && lowestPillar) {
+      const leverRow = document.querySelector(`.row[data-pillar="${lowestPillar.id}"]`);
+      if (leverRow) leverRow.classList.add("is-lever");
+      leverPick.textContent = lowestPillar.name.toUpperCase();
+      leverPick.classList.remove("unselected");
+    } else {
+      leverPick.textContent = "Answer every pillar to see your lever.";
+      leverPick.classList.add("unselected");
+    }
+  }
+
+  // Delegate clicks — whole label toggles the radio, and we manually maintain checked class for styling
+  document.addEventListener("change", (e) => {
+    if (e.target && e.target.matches('input[type="radio"]')) {
+      // Update the "checked" styling for labels in this group
+      const group = e.target.name;
+      document.querySelectorAll(`input[name="${group}"]`).forEach(r => {
+        r.closest("label").classList.toggle("checked", r.checked);
+      });
+      recompute();
+    }
+  });
+
+  // Persist answers locally so a reload doesn't wipe the audit
+  function save() {
+    const data = {};
+    PILLARS.forEach(p => {
+      for (let i = 1; i <= 5; i++) {
+        const sel = document.querySelector(`input[name="${p.id}_q${i}"]:checked`);
+        if (sel) data[`${p.id}_q${i}`] = sel.value;
+      }
+    });
+    data._commit1 = document.getElementById("commit1").value;
+    data._commit2 = document.getElementById("commit2").value;
+    data._commit3 = document.getElementById("commit3").value;
+    try { sessionStorage.setItem("bodyAudit", JSON.stringify(data)); } catch(e) {}
+  }
+  function load() {
+    try {
+      const raw = sessionStorage.getItem("bodyAudit");
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      Object.keys(data).forEach(k => {
+        if (k.startsWith("_commit")) {
+          const el = document.getElementById(k.slice(1));
+          if (el) el.value = data[k];
+          return;
+        }
+        const r = document.querySelector(`input[name="${k}"][value="${data[k]}"]`);
+        if (r) { r.checked = true; r.closest("label").classList.add("checked"); }
+      });
+      recompute();
+    } catch(e) {}
+  }
+  document.addEventListener("change", save);
+  document.addEventListener("input", save);
+
+  load();
+  recompute();
+</script>
+</body>
+</html>
