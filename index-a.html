@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Dad Metabolic Audit — Exec Lean</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--black:#0d0c0b;
+--dark:#1a1815;
+--card:#211f1c;
+--border:#2e2b27;
+--amber:#c4820a;
+--amber-light:#e09b1a;
+--amber-dim:#6b4706;
+--white:#f5f2ed;
+--muted:#8a8278;
+--danger:#c44a2a;
+}
+html,body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+
+.grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+
+.wrap{position:relative;z-index:1;max-width:620px;margin:0 auto;padding:2rem 1.25rem 5rem}
+
+/* INTRO */
+.intro{text-align:center;padding:3.5rem 0 2.5rem}
+.eyebrow{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--amber);text-transform:uppercase;font-weight:500;margin-bottom:1.5rem}
+.intro h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,11vw,5.8rem);line-height:0.9;color:var(--white);letter-spacing:0.02em;margin-bottom:1.5rem}
+.intro h1 span{color:var(--amber)}
+.divider{width:40px;height:2px;background:var(--amber);margin:0 auto 1.75rem}
+.intro p{font-family:'Crimson Pro',serif;font-size:1.2rem;color:var(--muted);line-height:1.7;max-width:460px;margin:0 auto 2.25rem}
+.tag-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:2.5rem}
+.tag{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:5px 14px}
+.start-btn{display:inline-block;background:var(--amber);color:var(--black);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;padding:1.1rem 3rem;cursor:pointer;border:none;transition:background 0.2s;width:100%;max-width:340px}
+.start-btn:hover{background:var(--amber-light)}
+.disclaimer{font-size:11px;color:var(--muted);margin-top:1rem;letter-spacing:0.02em}
+
+/* QUIZ */
+.quiz{display:none}
+.progress-wrap{margin-bottom:2.75rem}
+.progress-bar{height:1px;background:var(--border);position:relative;margin-bottom:10px}
+.progress-fill{height:100%;background:var(--amber);transition:width 0.5s ease}
+.progress-labels{display:flex;justify-content:space-between}
+.progress-labels span{font-size:10px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase}
+
+.q-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--border);line-height:1;margin-bottom:0.5rem}
+.q-pillar{font-size:10px;letter-spacing:0.2em;color:var(--amber);text-transform:uppercase;font-weight:500;margin-bottom:0.85rem}
+.q-text{font-family:'Crimson Pro',serif;font-size:1.45rem;line-height:1.4;color:var(--white);margin-bottom:0.5rem;font-weight:600}
+.q-sub{font-size:13px;color:var(--muted);margin-bottom:2rem;line-height:1.55;font-style:italic}
+
+.options{display:flex;flex-direction:column;gap:8px;margin-bottom:2.5rem}
+.opt{background:var(--card);border:1px solid var(--border);padding:1rem 1.25rem;cursor:pointer;transition:all 0.15s;display:flex;align-items:flex-start;gap:14px;text-align:left}
+.opt:hover{border-color:var(--amber-dim)}
+.opt.selected{border-color:var(--amber);background:#26200f}
+.opt-letter{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--border);min-width:18px;transition:color 0.15s;line-height:1.2;margin-top:1px}
+.opt.selected .opt-letter{color:var(--amber)}
+.opt-text{font-size:14px;color:var(--muted);line-height:1.5;font-weight:300;transition:color 0.15s}
+.opt.selected .opt-text{color:var(--white)}
+
+.q-nav{display:flex;justify-content:space-between;align-items:center}
+.nav-btn{background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:0.75rem 1.75rem;cursor:pointer;transition:all 0.15s}
+.nav-btn:hover:not(:disabled){border-color:var(--amber-dim);color:var(--white)}
+.nav-btn.primary{background:var(--amber);border-color:var(--amber);color:var(--black);font-weight:500}
+.nav-btn.primary:hover:not(:disabled){background:var(--amber-light)}
+.nav-btn:disabled{opacity:0.25;cursor:not-allowed}
+
+/* RESULTS */
+.results{display:none}
+.result-header{text-align:center;padding:2.5rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.score-ring{width:130px;height:130px;margin:0 auto 1.5rem;position:relative}
+.score-ring svg{transform:rotate(-90deg)}
+.score-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:2.4rem;line-height:1}
+.result-tier{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,8vw,4rem);line-height:0.95;margin-bottom:0.85rem}
+.result-sub{font-family:'Crimson Pro',serif;font-size:1.1rem;color:var(--muted);line-height:1.65;max-width:460px;margin:0 auto}
+
+.leaks-label{font-size:10px;letter-spacing:0.2em;color:var(--amber);text-transform:uppercase;font-weight:500;margin-bottom:1.25rem}
+.leak-card{border-left:3px solid var(--amber);padding:1.1rem 1.25rem 1.1rem 1.4rem;margin-bottom:10px;background:var(--card)}
+.leak-card.critical{border-left-color:var(--danger)}
+.leak-card.ok{border-left-color:#3a6b45}
+.leak-status{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;margin-bottom:0.3rem;color:var(--amber)}
+.leak-card.critical .leak-status{color:var(--danger)}
+.leak-card.ok .leak-status{color:#5a9b6a}
+.leak-name{font-size:14px;font-weight:500;color:var(--white);margin-bottom:0.35rem}
+.leak-fix{font-size:13px;color:var(--muted);line-height:1.55}
+
+.section-divider{height:1px;background:var(--border);margin:2.5rem 0}
+
+.cta-block{border:1px solid var(--amber-dim);padding:2.25rem;text-align:center;background:var(--dark)}
+.cta-block h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--white);margin-bottom:0.6rem;letter-spacing:0.04em}
+.cta-block p{font-family:'Crimson Pro',serif;font-size:1.05rem;color:var(--muted);margin-bottom:1.75rem;line-height:1.65}
+.cta-dm-box{background:var(--black);border:1px solid var(--border);padding:1.25rem;margin-bottom:1.5rem}
+.cta-dm-label{font-size:10px;letter-spacing:0.18em;color:var(--muted);text-transform:uppercase;margin-bottom:0.4rem}
+.cta-dm-word{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--amber);letter-spacing:0.1em;line-height:1}
+.cta-handle{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.5rem}
+.cta-note{font-size:12px;color:var(--muted);line-height:1.5}
+
+.retake-btn{background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:0.75rem 2rem;cursor:pointer;margin-top:2rem;transition:all 0.15s;display:block;margin-left:auto;margin-right:auto}
+.retake-btn:hover{border-color:var(--amber-dim);color:var(--white)}
+
+.fade-in{animation:fadeUp 0.4s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* MOBILE */
+@media(max-width:480px){
+  .wrap{padding:1.5rem 1rem 4rem}
+  .intro{padding:2.5rem 0 2rem}
+  .cta-block{padding:1.75rem 1.25rem}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="wrap">
+
+<div class="intro" id="introScreen">
+  <div class="eyebrow">Exec Lean — Free Diagnostic</div>
+  <h1>The Executive<br>Dad <span>Metabolic</span><br>Audit</h1>
+  <div class="divider"></div>
+  <p>Five questions. Two minutes. Find out exactly which metabolic leak is keeping you stuck — and what to fix today.</p>
+  <div class="tag-row">
+    <span class="tag">5 questions</span>
+    <span class="tag">2 minutes</span>
+    <span class="tag">Instant results</span>
+    <span class="tag">Free</span>
+  </div>
+  <button class="start-btn" onclick="startQuiz()">Take the Audit →</button>
+  <p class="disclaimer">Built for executive dads 35+</p>
+</div>
+
+<div class="quiz" id="quizScreen">
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-labels">
+      <span id="qCounter">1 of 5</span>
+      <span id="qPct">0% complete</span>
+    </div>
+  </div>
+  <div class="q-num" id="qNum">01</div>
+  <div class="q-pillar" id="qPillar"></div>
+  <div class="q-text" id="qText"></div>
+  <div class="q-sub" id="qSub"></div>
+  <div class="options" id="optionsWrap"></div>
+  <div class="q-nav">
+    <button class="nav-btn" id="prevBtn" onclick="prevQ()" disabled>← Back</button>
+    <button class="nav-btn primary" id="nextBtn" onclick="nextQ()" disabled>Next →</button>
+  </div>
+</div>
+
+<div class="results" id="resultsScreen"></div>
+
+</div>
+<script>
+const questions=[
+  {
+    pillar:"Sleep & Recovery",
+    text:"How many hours of uninterrupted sleep are you actually getting most nights?",
+    sub:"Not what you aim for — what actually happens.",
+    options:[
+      {text:"7+ hours. I wake up recovered.",score:0},
+      {text:"6–7 hours. Functional but never fully rested.",score:1},
+      {text:"5–6 hours. Running on caffeine by 10am.",score:2},
+      {text:"Under 5. Sleep is a casualty of the schedule.",score:3}
+    ],
+    leak:"Sleep Debt",
+    fixes:[
+      {score:0,text:"Your sleep foundation is solid. Protect it as your schedule scales."},
+      {score:1,text:"One hour of sleep debt compounds fast. Set a hard shutdown tonight — phone out of the bedroom, room at 67°F. Non-negotiable."},
+      {score:2,text:"5–6 hours tanks testosterone by up to 15% and spikes cortisol before your first meeting. Your body is in survival mode before the day starts."},
+      {score:3,text:"Critical. Under 5 hours makes fat loss nearly impossible. Your body prioritizes stress-survival over body composition. This is the first leak to seal."}
+    ]
+  },
+  {
+    pillar:"Cortisol & Nutrition Timing",
+    text:"When do you eat your first real meal of the day?",
+    sub:"Coffee doesn't count. Neither does a handful of almonds at your desk.",
+    options:[
+      {text:"Within 1–2 hours of waking. Real protein-based meal.",score:0},
+      {text:"Mid-morning when I get a break.",score:1},
+      {text:"Lunch is my first meal — no time for breakfast.",score:2},
+      {text:"I'm lucky if I eat before 2pm.",score:3}
+    ],
+    leak:"Cortisol Timing",
+    fixes:[
+      {score:0,text:"Your cortisol rhythm is well-managed. Keep anchoring your day with morning protein."},
+      {score:1,text:"Push your first meal earlier. Protein within 60 minutes of waking sets your metabolic tone for the entire day."},
+      {score:2,text:"Skipping breakfast spikes cortisol through your most productive hours. This parks fat on your midsection and kills your 2pm focus."},
+      {score:3,text:"Critical. Going 8+ hours without food locks your body in stress-preservation mode — holding fat, burning muscle, crashing your afternoon. One real meal before noon changes this fast."}
+    ]
+  },
+  {
+    pillar:"Movement Consistency",
+    text:"How would you honestly describe your movement in a typical week?",
+    sub:"Not your best week. Not your intention. Your actual average.",
+    options:[
+      {text:"3–5 structured sessions plus daily walking.",score:0},
+      {text:"2–3 sessions when work allows.",score:1},
+      {text:"1 session, maybe. Mostly desk to car to couch.",score:2},
+      {text:"Nothing consistent. Weeks go by with zero real movement.",score:3}
+    ],
+    leak:"Movement Floor",
+    fixes:[
+      {score:0,text:"You have a movement floor. Focus on maintaining it through high-pressure weeks — that's where most men lose ground."},
+      {score:1,text:"The gap between 2 and 3 sessions is usually a scheduling problem, not a motivation problem. Block it like a board call."},
+      {score:2,text:"One session a week won't move the metabolic needle. But a 10-minute walk after every meal will. Start there."},
+      {score:3,text:"Critical. Prolonged sedentary behavior blunts insulin sensitivity and accelerates visceral fat accumulation after 35. Your floor is one 10-minute walk today. That's it."}
+    ]
+  },
+  {
+    pillar:"Chronic Stress Load",
+    text:"How often does work stress follow you home — into dinner, bedtime, or family time?",
+    sub:"Be honest. Your family already knows the answer.",
+    options:[
+      {text:"Rarely. I have a transition ritual that actually works.",score:0},
+      {text:"Sometimes — 2 or 3 nights a week.",score:1},
+      {text:"Most nights. Physically present, mentally still at the office.",score:2},
+      {text:"Always. I don't remember the last time I fully switched off.",score:3}
+    ],
+    leak:"Chronic Stress Load",
+    fixes:[
+      {score:0,text:"Your recovery boundary is real. It's doing more for your metabolism than most people realize."},
+      {score:1,text:"A 10-minute decompression window between work and home changes this fast. A walk, silence in the car, a specific playlist — anything that signals transition."},
+      {score:2,text:"Unresolved cortisol doesn't clock out. It disrupts sleep, tanks testosterone, and keeps your body in fat-storage mode even when you're doing everything else right."},
+      {score:3,text:"Critical. Chronic unresolved stress is the hidden variable behind most executive fat gain after 40. No program works properly in a body running on constant cortisol."}
+    ]
+  },
+  {
+    pillar:"Identity Reclamation",
+    text:"When you look in the mirror — how honest are you willing to be right now?",
+    sub:"This one matters more than the other four combined.",
+    options:[
+      {text:"I look like the man I want to be — or close to it.",score:0},
+      {text:"I've let it slide but I know exactly who I used to be.",score:1},
+      {text:"I've been telling myself I'll fix it 'soon' for over a year.",score:2},
+      {text:"I've stopped looking. I don't recognize that person anymore.",score:3}
+    ],
+    leak:"Identity Misalignment",
+    fixes:[
+      {score:0,text:"You're operating from identity. That's the foundation everything else is built on. Keep it."},
+      {score:1,text:"That gap between who you were and who you are now is where real motivation lives. Use it before it becomes resentment."},
+      {score:2,text:"A year of 'soon' is a belief problem, not a motivation problem. You don't need more information — you need a system that fits your actual life."},
+      {score:3,text:"This is the root leak. Every other fix is harder when you've disconnected from your own identity. One consistent week changes what you see — and who you believe you are again."}
+    ]
+  }
+];
+
+let current=0;
+let answers=Array(5).fill(null);
+
+function startQuiz(){
+  document.getElementById('introScreen').style.display='none';
+  document.getElementById('quizScreen').style.display='block';
+  renderQ();
+}
+
+function renderQ(){
+  const q=questions[current];
+  const pct=Math.round((current/5)*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('qCounter').textContent=(current+1)+' of 5';
+  document.getElementById('qPct').textContent=pct+'% complete';
+  document.getElementById('qNum').textContent=String(current+1).padStart(2,'0');
+  document.getElementById('qPillar').textContent=q.pillar;
+  document.getElementById('qText').textContent=q.text;
+  document.getElementById('qSub').textContent=q.sub;
+
+  const wrap=document.getElementById('optionsWrap');
+  wrap.innerHTML='';
+  q.options.forEach((o,i)=>{
+    const div=document.createElement('div');
+    div.className='opt fade-in'+(answers[current]===i?' selected':'');
+    div.style.animationDelay=(i*0.06)+'s';
+    div.innerHTML=`<div class="opt-letter">${String.fromCharCode(65+i)}</div><div class="opt-text">${o.text}</div>`;
+    div.onclick=()=>selectOpt(i);
+    wrap.appendChild(div);
+  });
+
+  document.getElementById('prevBtn').disabled=current===0;
+  document.getElementById('nextBtn').disabled=answers[current]===null;
+  document.getElementById('nextBtn').textContent=current===4?'See My Results →':'Next →';
+}
+
+function selectOpt(i){
+  answers[current]=i;
+  document.querySelectorAll('.opt').forEach((el,idx)=>{
+    el.classList.toggle('selected',idx===i);
+  });
+  document.getElementById('nextBtn').disabled=false;
+}
+
+function nextQ(){
+  if(current<4){current++;renderQ();}
+  else showResults();
+}
+function prevQ(){if(current>0){current--;renderQ();}}
+
+function showResults(){
+  document.getElementById('quizScreen').style.display='none';
+  const res=document.getElementById('resultsScreen');
+  res.style.display='block';
+
+  const totalScore=answers.reduce((sum,a,i)=>sum+questions[i].options[a].score,0);
+  const maxScore=15;
+  const pct=Math.round(((maxScore-totalScore)/maxScore)*100);
+
+  let tier,tierColor,tierSub;
+  if(pct>=80){tier="Optimized";tierColor="#5a9b6a";tierSub="Your metabolic foundation is strong. The work now is refinement and protection under pressure.";}
+  else if(pct>=60){tier="Functional";tierColor="#c4820a";tierSub="You're getting by — but there are 2–3 significant leaks quietly compounding. Findable. Fixable. Fast.";}
+  else if(pct>=40){tier="Compromised";tierColor="#c4820a";tierSub="Your metabolism is working against you. Cortisol, sleep debt, and identity drift are stacking. This is reversible.";}
+  else{tier="Critical";tierColor="#c44a2a";tierSub="Multiple leaks are active simultaneously. You don't have to fix everything at once — one floor at a time rebuilds the whole system.";}
+
+  const circumference=2*Math.PI*52;
+  const dash=(pct/100)*circumference;
+
+  let leaksHTML='';
+  questions.forEach((q,i)=>{
+    const score=q.options[answers[i]].score;
+    const fix=q.fixes[score];
+    const cls=score>=3?'critical':score===0?'ok':'';
+    const label=score>=3?'Critical Leak — ':score===0?'No Leak — ':'Active Leak — ';
+    leaksHTML+=`<div class="leak-card ${cls} fade-in" style="animation-delay:${0.1+(i*0.08)}s">
+      <div class="leak-status">${label}${q.leak}</div>
+      <div class="leak-name">${q.pillar}</div>
+      <div class="leak-fix">${fix.text}</div>
+    </div>`;
+  });
+
+  res.innerHTML=`
+    <div class="result-header fade-in">
+      <div class="eyebrow">Your Metabolic Audit — Results</div>
+      <div class="score-ring">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="52" fill="none" stroke="#2e2b27" stroke-width="5"/>
+          <circle cx="65" cy="65" r="52" fill="none" stroke="${tierColor}" stroke-width="5"
+            stroke-dasharray="${dash.toFixed(1)} ${circumference.toFixed(1)}" stroke-linecap="round"/>
+        </svg>
+        <div class="score-num" style="color:${tierColor}">${pct}%</div>
+      </div>
+      <div class="result-tier" style="color:${tierColor}">${tier}</div>
+      <p class="result-sub">${tierSub}</p>
+    </div>
+
+    <div class="leaks-label">Your 5 Metabolic Leak Scores</div>
+    ${leaksHTML}
+
+    <div class="section-divider"></div>
+
+    <div class="cta-block fade-in" style="animation-delay:0.55s">
+      <h3>Ready to seal the leaks?</h3>
+      <p>The Executive Lean Metabolic Blueprint is a 90-day system built for executive dads over 35. No 5am gym sessions. No life overhaul. The right floors, in the right order — built around your schedule.</p>
+      <div class="cta-dm-box">
+        <div class="cta-dm-label">DM this word on Instagram</div>
+        <div class="cta-dm-word">DAD</div>
+        <div class="cta-handle">@exec_lean_metabolic_blueprint</div>
+      </div>
+      <p class="cta-note">I'll send you the full Minimum Floor Protocol — the exact 3 daily non-negotiables that executive dads use to stay lean without overhauling their life.</p>
+    </div>
+
+    <button class="retake-btn" onclick="retake()">← Retake the audit</button>
+  `;
+}
+
+function retake(){
+  current=0;
+  answers=Array(5).fill(null);
+  document.getElementById('resultsScreen').style.display='none';
+  document.getElementById('introScreen').style.display='block';
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
